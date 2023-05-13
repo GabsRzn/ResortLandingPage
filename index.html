@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Website Landing Page</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <a href="#" class="brand">GAV Resort</a>
+        <div class="menu-btn"></div>
+            <div class="navigation">
+            <div class="navigation-items">
+                <a href="#">Início</a>
+                <a href="#">Sobre</a>
+                <!--<a href="#">Explore</a>-->
+                <a href="#">Galeria</a>
+                <a href="#">Contato</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="home">
+        <video class="video-slide active" src="1.mp4" autoplay muted loop></video>
+        <video class="video-slide" src="2.mp4" autoplay muted loop></video>
+        <video class="video-slide" src="3.mp4" autoplay muted loop></video>
+        <video class="video-slide" src="4.mp4" autoplay muted loop></video>
+        <div class="content active">
+            <h1>Ilha <br><span>Paradisíaca</span></h1>
+            <!--<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusantium aperiam mollitia earum quos eos, doloremque aliquid error enim, eveniet soluta inventore assumenda, perspiciatis rerum ab! Facilis odio aliquam tempore beatae.</p> -->
+            <p>Bem-vindo ao nosso deslumbrante resort na ilha, onde as águas cristalinas encontram areia macia e em pó e a exuberante vegetação da floresta tropical. Nosso resort é um verdadeiro paraíso, oferecendo uma fuga do agito da vida cotidiana.</p>
+            <a href="#">Leia mais</a>
+        </div>
+        <div class="content">
+            <h1>Aventuras <br><span>Off road</span></h1>
+            <!--<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusantium aperiam mollitia earum quos eos, doloremque aliquid error enim, eveniet soluta inventore assumenda, perspiciatis rerum ab! Facilis odio aliquam tempore beatae.</p> -->
+            <p>Embarque em aventuras incríveis em nossas dunas ao redor da ilha com os gipes off road. Seja com algum de nossos motoristas ou você com um grupo de amigos, é um trajeto completamente seguro e com uma vista incrível.</p>
+            <a href="#">Leia mais</a>
+        </div>
+        <div class="content">
+            <h1>Aproveita as <br><span>Trilhas</span></h1>
+            <!-- <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusantium aperiam mollitia earum quos eos, doloremque aliquid error enim, eveniet soluta inventore assumenda, perspiciatis rerum ab! Facilis odio aliquam tempore beatae.</p> -->
+            <p>Aproveite nossas trilhas ao redor da ilha e descubra as belezas da natureza que cercam nosso risort, tudo de forma segura e exploradora, para você ter liberdade e viver a experiência de forma indescritível.</p>
+            <a href="#">Leia mais</a>
+        </div>
+        <div class="content">
+            <h1>Viagem <br><span>dos sonhos</span></h1>
+            <!-- <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusantium aperiam mollitia earum quos eos, doloremque aliquid error enim, eveniet soluta inventore assumenda, perspiciatis rerum ab! Facilis odio aliquam tempore beatae.</p> -->
+            <p>Toda essa liberdade e segurança proporcionada pelo nosso risort darão a você o contato com a natureza que você tanto busca e farão dessa, uma viagem memorável. </p>
+            <a href="#">Leia mais</a>
+        </div>
+        <div class="media-icons">
+            <a href="#"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+        </div>
+        <div class="slider-navigation">
+            <div class="nav-btn active"></div>
+            <div class="nav-btn"></div>
+            <div class="nav-btn"></div>
+            <div class="nav-btn"></div>
+        </div>
+    </section>
+
+    <script type="text/javascript">
+        const menuBtn = document.querySelector(".menu-btn");
+        const navigation = document.querySelector(".navigation");
+
+        menuBtn.addEventListener("click", () => {
+            menuBtn.classList.toggle("active");
+            navigation.classList.toggle("active");
+        });
+
+        const btns = document.querySelectorAll(".nav-btn");
+        const slides = document.querySelectorAll(".video-slide");
+        const contents = document.querySelectorAll(".content");
+
+        var sliderNav = function(manual){
+            btns.forEach((btn) => {
+                btn.classList.remove("active");
+            });
+
+            slides.forEach((slide) => {
+                slide.classList.remove("active");
+            });
+
+            contents.forEach((content) => {
+                content.classList.remove("active");
+            });
+
+            btns[manual].classList.add("active");
+            slides[manual].classList.add("active");
+            contents[manual].classList.add("active");
+        }
+
+        btns.forEach((btn, i) => {
+            btn.addEventListener("click", () => {
+                sliderNav(i);
+            });
+        });
+    </script>
+</body>
+</html>
